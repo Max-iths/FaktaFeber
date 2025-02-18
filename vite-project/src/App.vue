@@ -1,12 +1,27 @@
 <script setup></script>
 
 <template>
-  <div>
-    <nav>
-      <router-link to="/">Home</router-link>
-    </nav>
+  <div id="app">
+    <Navbar />
+
+    <router-view></router-view>
   </div>
-  <router-view></router-view>
 </template>
 
-<style scoped></style>
+<script>
+
+import Navbar from './components/Navbar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Navbar
+  }
+}
+</script>
+
+<style scoped>
+html, body {
+    overflow: auto;
+}
+</style>

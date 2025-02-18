@@ -3,5 +3,12 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(),Components({
+    resolvers: [BootstrapVueNextResolver()]
+  })],
 })
+
+import Components from 'unplugin-vue-components/vite'
+import { BootstrapVueNextResolver } from 'bootstrap-vue-next'
+
+
