@@ -5,6 +5,8 @@ export const useQuizResultsStore = defineStore('quizResults', {
         results: [],
         correctAnswers: 0,
         incorrectAnswers: 0,
+        category: "" || "Random",
+        difficulty: "",
     }),
     actions: {
         addResult(newResult) {
@@ -13,6 +15,10 @@ export const useQuizResultsStore = defineStore('quizResults', {
         UpdateAnswers(correct, incorrect) {
             this.correctAnswers = correct
             this.incorrectAnswers = incorrect
+        },
+        setQuizSettings(category, difficulty) {
+            this.category = category
+            this.difficulty = difficulty
+        },
     }
-}
 })

@@ -1,4 +1,4 @@
-<script setup></script>
+
 
 <template>
   <div id="app">
@@ -24,4 +24,5 @@ export default {
 html, body {
     overflow: auto;
 }
+
 </style>

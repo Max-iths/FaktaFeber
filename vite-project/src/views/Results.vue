@@ -10,7 +10,7 @@ import { useQuizResultsStore } from '../stores/QuizResults'
 export default {
   name: 'Results',
   components: {
-    ResultsCard,
+    ResultsCard
   },
   setup() {
     const quizStore = useQuizResultsStore()

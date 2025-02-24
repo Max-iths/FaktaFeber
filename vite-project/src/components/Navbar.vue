@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar">
         <div class="logo">
-            <router-link to="/">FaktaFeber</router-link>
+            <router-link to="/">FactFever</router-link>
         </div>
         <ul class="navbar-links">
             <li>
@@ -31,7 +31,8 @@ export default {
 
 .navbar {
     background-color: #ADD8E6;
-
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {

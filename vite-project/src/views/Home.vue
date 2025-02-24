@@ -1,7 +1,8 @@
 <template>
     <div class="Welcome">
-        <h1>Välkommen till FaktaFeber</h1>
-        <p>Välj antal frågor, kategori, och svårighetsgrad nedan för att producera din egen quiz!</p>
+        <h1>Welcome to FactFever</h1>
+        <p>Choose number of questions, category, and difficulty below to produce your own quiz! Check out your results on the results page.</p>
+
     </div>
     <QuizForm @start-quiz="fetchQuestions" />
     <QuizDisplay v-if="questions.length" :questions="questions" />
@@ -22,8 +23,11 @@ export default {
     setup() {
         const questions = ref([])
 
+        //Fetches questions from the API
         const fetchQuestions = ({ category, numQuestions, difficulty }) => {
-          const url = `https://opentdb.com/api.php?amount=${numQuestions}&category=${category}&difficulty=${difficulty}&type=boolean`
+
+        const ifCategory = category ? category : '';
+          const url = `https://opentdb.com/api.php?amount=${numQuestions}&category=${ifCategory}&difficulty=${difficulty}&type=boolean`
 
             axios
                 .get(url)
