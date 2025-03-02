@@ -8,7 +8,8 @@
                 <router-link to="/" class="navbar-link" :class="{ active : isActive('/')}">Home</router-link>
             </li>
             <li>
-                <router-link to="/results" class="navbar-link" :class="{ active : isActive('/results')}">Results</router-link>
+                <router-link :to="`/results/${userName}`"
+                class="navbar-link" :class="{ active : isActive('/results')}">Results</router-link>
             </li>
         </ul>
     </nav>
@@ -17,12 +18,20 @@
 
 
 <script>
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
 export default {
     name: 'Navbar',
-    methods: {
-        isActive(route) {
-            return this.$route.path === route
+    setup () {
+        const userName = ref('Guest')
+        const route = useRoute()
+
+        const isActive = (routePath) => {
+            return route.path === routePath
         }
+
+        return { userName, isActive }
     }
 }
 </script>

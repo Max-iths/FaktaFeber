@@ -1,5 +1,5 @@
 <template>
-<h2 id="results-heading">Results</h2>
+<h2 id="results-heading">Results for {{ userName }}</h2>
 <div class="results-container">
   <div v-for="(result, index) in results" :key="index" class="results-card">
     <h3>{{ result.quizName || "Quiz" }}</h3>
@@ -18,6 +18,7 @@
 <script>
 import { ref, computed } from 'vue'
 import { useQuizResultsStore } from '../stores/QuizResults'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'ResultsCard',
@@ -25,8 +26,14 @@ export default {
     results: Array,
     },
   setup() {
+    const route = useRoute()
+
+    const userName = computed(() => {
+      return route.params.userName || 'Guest'
+    })
+
     const quizStore = useQuizResultsStore()
-    return { quizStore }
+    return { quizStore, userName }
   },
 }
 </script>
